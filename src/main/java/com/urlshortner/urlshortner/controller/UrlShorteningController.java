@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"https://shorttly.herokuapp.com/", "http://shorttly.herokuapp.com/"})
 public class UrlShorteningController {
 
     @Autowired
