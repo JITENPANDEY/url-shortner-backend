@@ -5,6 +5,7 @@ import com.google.common.hash.Hashing;
 import com.urlshortner.urlshortner.Request.UrlRequest;
 import com.urlshortner.urlshortner.model.Url;
 import com.urlshortner.urlshortner.repository.UrlRepository;
+import com.urlshortner.urlshortner.scheduler.JobScheduler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class UrlService {
 
     @Autowired
     private UrlRepository urlRepository;
+    @Autowired
+    private JobScheduler jobScheduler;
+
     public Url generateShortLink(UrlRequest originalUrl) {
         String origUrl = originalUrl.getUrl();
         UrlValidator validator = new UrlValidator(
