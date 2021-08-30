@@ -18,7 +18,7 @@ public class JobScheduler {
     @Autowired
     private UrlRepository urlRepository;
 
-    @Scheduled(cron = "0 0 * * * *") // every night 12AM
+    @Scheduled(cron = "0 0 0 * * ?") // every night 12AM
     public void deactivateUrl(){
         List<Url> urls = urlRepository.findAll();
         for(Url url : urls){
